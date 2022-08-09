@@ -25,6 +25,7 @@ const Dialogs = (props) => {
         { id: 0, message: "Hi" },
         { id: 1, message: "How are you?" },
         { id: 2, message: "Yo" },
+        { id: 3, message: "Hey" },
     ];
 
     return (
