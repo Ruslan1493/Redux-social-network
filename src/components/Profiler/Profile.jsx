@@ -3,13 +3,7 @@ import style from "./Profile.module.scss";
 import MyPost from "./MyPost/MyPost";
 import CreatePost from "./CreatePost/CreatePost";
 
-const Profile = () => {
-
-    const myPostData = [
-        { id: 0, title: "First Post", likesCount: 0 },
-        { id: 1, title: "Second Post", likesCount: 0 },
-        { id: 2, title: "Third Post", likesCount: 0 }
-    ];
+const Profile = (props) => {
 
     return (
         <div className={style.content}>
@@ -18,7 +12,7 @@ const Profile = () => {
                 <p>My Posts</p>
                 <CreatePost />
                 <div className={style.posts}>
-                    {myPostData.map((data, i) => {
+                    {props.state.myPostData.map((data, i) => {
                         return <MyPost likesCount={data.likesCount} title={data.title} key={i} />
                     })}
                 </div>

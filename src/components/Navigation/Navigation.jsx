@@ -1,16 +1,17 @@
-import React from 'react';
-import style from "./Navigation.module.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import style from "./Navigation.module.scss";
 
 const Navigation = () => {
 
     return (
         <nav className={style.navigation}>
             <ul>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/dialogs">Messages</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Music</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/dialogs">Messages</Link></li>
+                <li><Link to="#">News</Link></li>
+                <li><Link to="#">Music</Link></li>
+                <li><Link to="#">Settings</Link></li>
             </ul>
         </nav>
     )
