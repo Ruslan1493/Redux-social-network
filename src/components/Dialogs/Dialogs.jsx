@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Dialogs.module.scss";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const DialogItem = (props) => {
     return <div className={style.dialog}>
         <Link to={`/dialogs/${props.id}`}>{props.name}</Link>
@@ -27,6 +28,8 @@ const Dialogs = (props) => {
                     return <Message message={data.message} key={i} />
                 })}
 =======
+=======
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 const Dialogs = (props) => {
     return (
         <div className={style.dialogs}>
@@ -47,6 +50,9 @@ const Dialogs = (props) => {
             <div className={style.messages}>
                 <div className={style.message}>Hello</div>
                 <div className={style.message}>How are you?</div>
+<<<<<<< HEAD
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
             </div>
         </div>
