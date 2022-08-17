@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Dialogs.module.scss";
 
+<<<<<<< HEAD
 const DialogItem = (props) => {
     return <div className={style.dialog}>
         <Link to={`/dialogs/${props.id}`}>{props.name}</Link>
@@ -25,6 +26,28 @@ const Dialogs = (props) => {
                 {props.state.messagesData.map((data, i) => {
                     return <Message message={data.message} key={i} />
                 })}
+=======
+const Dialogs = (props) => {
+    return (
+        <div className={style.dialogs}>
+            <div className={style.dialogsItems}>
+                <div className={style.dialog}>
+                    <Link to="/dialogs/1">Yugo</Link>
+                </div>
+                <div className={style.dialog}>
+                    <Link to="/dialogs/2">Ben</Link>
+                </div>
+                <div className={style.dialog}>
+                    <Link to="/dialogs/3">Greg</Link>
+                </div>
+                <div className={style.dialog}>
+                    <Link to="/dialogs/4">Anna</Link>
+                </div>
+            </div>
+            <div className={style.messages}>
+                <div className={style.message}>Hello</div>
+                <div className={style.message}>How are you?</div>
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
             </div>
         </div>
     )

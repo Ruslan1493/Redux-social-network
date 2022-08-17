@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import style from "./MyPost.module.scss";
 
 const MyPost = (props) => {
@@ -10,6 +11,18 @@ const MyPost = (props) => {
                 {props.title}
                 <div className="likes">Likes: {props.likesCount}</div>
                 <div className="likeBtn">Like</div>
+=======
+import style from "./MyPost.module.css";
+
+const MyPost = () => {
+
+    return(
+        <div>
+            <div className={style.post}>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTFrhr_-pYR74jUgOy7IerAoHAX3zPIZZcg&usqp=CAU" />
+                post 1
+                <span className="likeBtn">Like</span>
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
             </div>
         </div>
     )
