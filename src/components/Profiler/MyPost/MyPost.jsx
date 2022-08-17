@@ -1,6 +1,7 @@
 import React from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import style from "./MyPost.module.scss";
 
 const MyPost = (props) => {
@@ -15,6 +16,8 @@ const MyPost = (props) => {
 =======
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 import style from "./MyPost.module.css";
 
 const MyPost = () => {
@@ -26,6 +29,9 @@ const MyPost = () => {
                 post 1
                 <span className="likeBtn">Like</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436

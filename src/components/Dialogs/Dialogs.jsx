@@ -4,6 +4,7 @@ import style from "./Dialogs.module.scss";
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const DialogItem = (props) => {
     return <div className={style.dialog}>
         <Link to={`/dialogs/${props.id}`}>{props.name}</Link>
@@ -30,6 +31,8 @@ const Dialogs = (props) => {
 =======
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 const Dialogs = (props) => {
     return (
         <div className={style.dialogs}>
@@ -51,6 +54,9 @@ const Dialogs = (props) => {
                 <div className={style.message}>Hello</div>
                 <div className={style.message}>How are you?</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436

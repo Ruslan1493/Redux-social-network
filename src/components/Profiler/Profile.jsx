@@ -1,6 +1,7 @@
 import React from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import style from "./Profile.module.scss";
 import MyPost from "./MyPost/MyPost";
 import CreatePost from "./CreatePost/CreatePost";
@@ -20,6 +21,8 @@ const Profile = (props) => {
 =======
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 import style from "./Profile.module.css";
 import MyPost from "./MyPost/MyPost";
 import CreatePost from "./CreatePost/CreatePost";
@@ -37,6 +40,9 @@ const Profile = () => {
                         <MyPost />
                         <MyPost />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
+=======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
 =======
 >>>>>>> bb68ec668aaab0638c7113139fc208a3b7d55436
