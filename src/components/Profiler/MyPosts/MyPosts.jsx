@@ -3,12 +3,20 @@ import style from "./MyPost.module.scss";
 import Post from "../Post/Post";
 
 const MyPosts = (props) => {
-    const textElement = useRef();
+    const newPostElement = useRef();
 
     const addPost = () => {
-        const message = textElement.current.value;
+        const message = newPostElement.current.value;
         props.addPost(message);
+        // props.updateNewPostText('');
     }
+
+    let onPostChange = () => {
+        const message = newPostElement.current.value;
+        console.log(message);
+        // props.updateNewPostText(message);
+    }
+
     return (
         <div>
             <div className={style.postsBlock}>
@@ -16,7 +24,11 @@ const MyPosts = (props) => {
                 <div>
                     <div className={style.createPostWrapper}>
                         <p>New Post</p>
-                        <textarea ref={textElement}></textarea>
+                        <textarea
+                            onChange={onPostChange}
+                            ref={newPostElement}
+                            // value={''}
+                        ></textarea>
                         <button
                             className={style.createPostBtn}
                             onClick={addPost}
