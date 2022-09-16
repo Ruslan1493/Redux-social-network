@@ -11,9 +11,10 @@ const Profile = (props) => {
             <div className={style.postWrapper}>
                 <MyPosts
                     state={props.state}
-                    addPost={props.addPost}
-                    updateNewPostText={props.updateNewPostText}
-                    newPostText={props.newPostText}
+                    dispatch={props.dispatch}
+                    // addPost={props.addPost}
+                    // updateNewPostText={props.updateNewPostText}
+                    // newPostText={props.newPostText}
                 />
             </div>
         </div >

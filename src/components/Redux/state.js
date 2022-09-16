@@ -1,4 +1,4 @@
-
+const ADD_POST = 'ADD-POST';
 
 let store = {
     _state: {
@@ -37,6 +37,16 @@ let store = {
     _callSubscriber() {
         console.log('state changed');
     },
+    dispatch(action) {
+        if(action.type === ADD_POST){
+            const newPost = {
+                id: 5, message: action.newText, likesCount: 0
+            }
+    
+            this._state.profilePage.myPostData.push(newPost);
+            this._callSubscriber(this._state);
+        }
+    },
     addPost(newText) {
         const newPost = {
             id: 5, message: newText, likesCount: 0
@@ -51,7 +61,9 @@ let store = {
     },
     subscriber(observer) {
         this._callSubscriber = observer;
-    }
+    },
 }
+
+export const addPostActionCreator = (text) => ({type: ADD_POST, newText: text});
 
 export default store;

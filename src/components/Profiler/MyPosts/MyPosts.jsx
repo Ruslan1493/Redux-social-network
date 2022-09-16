@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import style from "./MyPost.module.scss";
 import Post from "../Post/Post";
+import { addPostActionCreator } from "../../Redux/state";
 
 const MyPosts = (props) => {
     const newPostElement = useRef();
 
     const addPost = () => {
         const message = newPostElement.current.value;
-        props.addPost(message);
-        // props.updateNewPostText('');
+        props.dispatch(addPostActionCreator(message));
     }
 
     let onPostChange = () => {
@@ -27,7 +27,7 @@ const MyPosts = (props) => {
                         <textarea
                             onChange={onPostChange}
                             ref={newPostElement}
-                            // value={''}
+                        // value={''}
                         ></textarea>
                         <button
                             className={style.createPostBtn}
