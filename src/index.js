@@ -11,9 +11,7 @@ const rerenderComponents = (state) => {
         <React.StrictMode>
             <App
                 state={state}
-                addPost={store.addPost.bind(store)}
-                updateNewPostText={store.updateNewPostText.bind(store)}
-                newPostText={store.getState().profilePage.newPostText}
+                dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>
     );
