@@ -14,11 +14,16 @@ function App(props) {
         <Navigation />
         <div className="app-wrapper-content">
           <Routes>
-            <Route exact path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
-            <Route path="/profile" element={<Profile
-              state={props.state.profilePage}
-              dispatch={props.dispatch}
-            />} />
+            <Route exact path="/dialogs" element={
+              <Dialogs
+                state={props.state.dialogsPage}
+                dispatch={props.dispatch}
+              />} />
+            <Route path="/profile" element={
+              <Profile
+                state={props.state.profilePage}
+                dispatch={props.dispatch}
+              />} />
           </Routes>
         </div>
       </div>

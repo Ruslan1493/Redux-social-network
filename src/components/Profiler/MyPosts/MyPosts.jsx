@@ -2,14 +2,13 @@ import React, { useRef } from "react";
 import style from "./MyPost.module.scss";
 import Post from "../Post/Post";
 import { addPostActionCreator } from "../../Redux/state";
-import { addPostActionCreator } from "../../Redux/state";
 
 const MyPosts = (props) => {
     const newPostElement = useRef();
 
     const addPost = () => {
         const message = newPostElement.current.value;
-        props.dispatch(dispatch(addPostActionCreatorActionCreator(message)));
+        props.dispatch(addPostActionCreator(message));
     }
 
     let onPostChange = () => {
