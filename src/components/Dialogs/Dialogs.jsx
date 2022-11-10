@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Dialogs.module.scss";
-import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from "../Redux/state";
+import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from "../Redux/dialogsReducer";
 import { useRef } from "react";
 
 const DialogItem = (props) => {
