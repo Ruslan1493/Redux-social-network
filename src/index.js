@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
-import store from "./components/Redux/state";
+import store from "./components/Redux/redux-state";
 
 const rerenderComponents = (state) => {
     const container = document.getElementById('root');
@@ -19,4 +19,7 @@ const rerenderComponents = (state) => {
 
 rerenderComponents(store.getState());
 
-store.subscriber(rerenderComponents);
+store.subscribe(() => {
+    const state = store.getState();
+    rerenderComponents(state);
+});

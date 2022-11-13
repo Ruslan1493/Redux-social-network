@@ -1,7 +1,16 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-const profileReducer = (state, action) => {
+const initialState = {
+    myPostData: [
+        { id: 0, message: "First Post", likesCount: 0 },
+        { id: 1, message: "Second Post", likesCount: 0 },
+        { id: 2, message: "Third Post", likesCount: 0 }
+    ],
+    newPostText: 'enter yout text',
+}
+
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             const newPost = {
