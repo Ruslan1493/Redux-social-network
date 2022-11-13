@@ -1,19 +1,17 @@
 import React, { useRef } from "react";
 import style from "./MyPost.module.scss";
 import Post from "../Post/Post";
-import { addPostActionCreator } from "../../Redux/profileReducer";
 
 const MyPosts = (props) => {
     const newPostElement = useRef();
 
-    const addPost = () => {
-        const message = newPostElement.current.value;
-        props.dispatch(addPostActionCreator(message));
+    const onAddPost = () => {
+        const text = newPostElement.current.value;
+        props.addPost(text);
     }
 
-    let onPostChange = () => {
-        const message = newPostElement.current.value;
-        console.log(message);
+    let onPostChange = (e) => {
+ 
     }
 
     return (
@@ -26,16 +24,15 @@ const MyPosts = (props) => {
                         <textarea
                             onChange={onPostChange}
                             ref={newPostElement}
-                        // value={''}
                         ></textarea>
                         <button
                             className={style.createPostBtn}
-                            onClick={addPost}
+                            onClick={onAddPost}
                         >Create</button>
                     </div>
                 </div>
                 <div>
-                    {props.state.myPostData.map((data, i) => {
+                    {props.posts.map((data, i) => {
                         return <Post likesCount={data.likesCount} message={data.message} key={i} />
                     })}
                 </div>

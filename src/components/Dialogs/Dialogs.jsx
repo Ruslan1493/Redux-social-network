@@ -16,32 +16,32 @@ const Message = (props) => {
 
 
 const Dialogs = (props) => {
-
+    const state = props.store.getState();
     const nameElement = useRef();
     
     const onChangeMessage = (e) => {
         const text = e.target;
-        props.dispatch(updateNewMessageBodyActionCreator(text));
+        props.store.dispatch(updateNewMessageBodyActionCreator(text));
     }
 
     const onSendMessageClick = (e) => {
         const text = nameElement.current.value;
         console.log(text);
-        props.dispatch(sendMessageActionCreator(text));
+        props.store.dispatch(sendMessageActionCreator(text));
     }
 
     return (
         <div className={style.dialogs}>
             <div className={style.dialogsItems}>
                 <div>
-                    {props.state.dialogs.map((data, i) => {
+                    {state.dialogsPage.dialogs.map((data, i) => {
                         return <DialogItem id={data.id} name={data.name} key={i} />
                     })}
                 </div>
             </div>
             <div className={style.messages}>
                 <div>
-                    {props.state.messages.map((data, i) => {
+                    {state.dialogsPage.messages.map((data, i) => {
                         return <Message message={data.message} key={i} />
                     })}
                 </div>

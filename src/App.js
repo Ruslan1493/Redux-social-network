@@ -16,13 +16,11 @@ function App(props) {
           <Routes>
             <Route exact path="/dialogs" element={
               <Dialogs
-                state={props.state.dialogsPage}
-                dispatch={props.dispatch}
+                store={props.store}
               />} />
             <Route path="/profile" element={
               <Profile
-                state={props.state.profilePage}
-                dispatch={props.dispatch}
+                store={props.store}
               />} />
           </Routes>
         </div>
