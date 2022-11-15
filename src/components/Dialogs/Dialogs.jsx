@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Dialogs.module.scss";
-import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from "../Redux/dialogsReducer";
 import { useRef } from "react";
 
 const DialogItem = (props) => {
@@ -16,32 +15,31 @@ const Message = (props) => {
 
 
 const Dialogs = (props) => {
-    const state = props.store.getState();
+    const dialogsPage = props.dialogsPage;
     const nameElement = useRef();
     
     const onChangeMessage = (e) => {
         const text = e.target;
-        props.store.dispatch(updateNewMessageBodyActionCreator(text));
+        props.updateNewMessageBody(text);
     }
 
     const onSendMessageClick = (e) => {
         const text = nameElement.current.value;
-        console.log(text);
-        props.store.dispatch(sendMessageActionCreator(text));
+        props.sendMessage(text);
     }
 
     return (
         <div className={style.dialogs}>
             <div className={style.dialogsItems}>
                 <div>
-                    {state.dialogsPage.dialogs.map((data, i) => {
+                    {dialogsPage.dialogs.map((data, i) => {
                         return <DialogItem id={data.id} name={data.name} key={i} />
                     })}
                 </div>
             </div>
             <div className={style.messages}>
                 <div>
-                    {state.dialogsPage.messages.map((data, i) => {
+                    {dialogsPage.messages.map((data, i) => {
                         return <Message message={data.message} key={i} />
                     })}
                 </div>
