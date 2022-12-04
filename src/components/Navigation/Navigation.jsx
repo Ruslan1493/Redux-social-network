@@ -9,6 +9,7 @@ const Navigation = () => {
             <ul>
                 <li><Link to="/profile" className={style.item}>Profile</Link></li>
                 <li><Link to="/dialogs">Messages</Link></li>
+                <li><Link to="/users">Users</Link></li>
                 <li><Link to="#">News</Link></li>
                 <li><Link to="#">Music</Link></li>
                 <li><Link to="#">Settings</Link></li>

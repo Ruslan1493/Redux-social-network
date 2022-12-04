@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import Profile from "./components/Profiler/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 function App(props) {
   return (
@@ -19,6 +20,9 @@ function App(props) {
             />
             <Route path="/profile" element={
               <Profile />}
+            />
+            <Route path="/users" element={
+              <UsersContainer />}
             />
           </Routes>
         </div>
