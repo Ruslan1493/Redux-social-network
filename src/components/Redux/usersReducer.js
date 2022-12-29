@@ -23,12 +23,20 @@ const usersReducer = (state = initialState, action) => {
     let stateCopy = { ...state, ...state.users };
     switch (action.type) {
         case FOLLOW:
-            console.error('userId reducer', action.userId)
-            console.error('users', stateCopy.users)
-            stateCopy.users[action.userId].followed = true;
+            stateCopy.users.map(u => {
+                if(u.id === action.userId){
+                    u.followed = true;
+                    return;
+                }
+            })
             return stateCopy;
         case UNFOLLOW:
-            stateCopy.users[action.userId].followed = false;
+            stateCopy.users.map(u => {
+                if(u.id === action.userId){
+                    u.followed = false;
+                    return;
+                }
+            })
             return stateCopy;
         case SET_USERS:
             stateCopy.users = action.users;
