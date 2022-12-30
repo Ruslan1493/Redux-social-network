@@ -1,20 +1,49 @@
-.userStyles{
+.userStyles {
     display: block;
     height: 200px;
     width: 200px;
 }
 
-.userAvatar{
+.userAvatar {
     display: flex;
     width: 200px;
     flex-direction: column;
     align-items: center;
-    button{
+
+    button {
         padding: 10px;
         border: 1px solid white;
         border-radius: 10px;
-        :hover{
+
+        :hover {
             background-color: rgb(189, 120, 29);
         }
     }
 }
+
+.pagesContainer {
+    // margin-top: 200px;
+    span {
+        padding: 0 5px 0 5px;
+        cursor: pointer;
+    }
+    
+    .selectedPage {
+        font-weight: bold;
+        font-size: large;
+    }
+
+}
+
+.loader{
+    visibility: none;
+    display: block;
+    min-height: 150px;
+    width: 150px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import style from "./Navigation.module.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import style from './Navigation.module.scss';
 
 const Navigation = () => {
 
