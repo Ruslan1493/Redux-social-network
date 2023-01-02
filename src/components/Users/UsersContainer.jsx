@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { unfollowAC, followAC, setUsersAC, setCurrentPageAC, setUsersTotalCountAC, toggleIsFetchingAC } from '../Redux/usersReducer';
+import { unfollow, follow, setUsers, setCurrentPage, setUsersTotalCount, setIsFetching } from '../Redux/usersReducer';
 import style from './User.module.scss';
 
 import loader from '../../assets/loader.png';
@@ -63,27 +63,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            return dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            return dispatch(unfollowAC(userId));
-        },
-        setUsers: (users) => {
-            return dispatch(setUsersAC(users));
-        },
-        setCurrentPage: (page) => {
-            return dispatch(setCurrentPageAC(page));
-        },
-        setUsersTotalCount: (count) => {
-            return dispatch(setUsersTotalCountAC(count));
-        },
-        setIsFetching: (isFetching) => {
-            return dispatch(toggleIsFetchingAC(isFetching));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setUsersTotalCount,
+    setIsFetching,
+})(UsersAPIComponent);
