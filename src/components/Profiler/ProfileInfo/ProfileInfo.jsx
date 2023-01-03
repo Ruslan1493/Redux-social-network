@@ -5,8 +5,10 @@ const ProfileInfo = (props) => {
     console.log(props)
     return (
         <div className={style.content}>
-            <img src={props.profile.photos.large} />
-            ava + desc
+            <img className={style.profileImage} src={props.profile.photos.large} />
+            <div>
+                <p>Name: {props.profile.fullName}</p>
+            </div>
         </div>
     )
 }
