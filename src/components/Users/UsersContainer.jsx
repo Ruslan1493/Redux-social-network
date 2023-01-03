@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { unfollowAC, followAC, setUsersAC, setCurrentPageAC, setUsersTotalCountAC, toggleIsFetchingAC } from '../Redux/usersReducer';
-import style from './User.module.scss';
 
-import loader from '../../assets/loader.png';
 import axios from 'axios';
 
 import Users from './Users';
+import Preloader from '../common/Preloader';
 
 class UsersAPIComponent extends React.Component {
 
@@ -37,9 +36,7 @@ class UsersAPIComponent extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ?
-                <img className={style.loader} style={{ visibility: 'visible' }} src={loader} /> :
-                <img className={style.loader} style={{ visibility: 'hidden' }} src={loader} />}
+            {this.props.isFetching && <Preloader/>}
             <Users
                 totalUsersCount={this.props.totalUsersCount}
                 currentPage={this.props.currentPage}
