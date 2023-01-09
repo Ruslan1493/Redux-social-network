@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import userImg from '../../assets/avatar.png';
+
+//Services
+import { follow, unfollow } from '../../api/api';
+
+//Styles
 import style from './User.module.scss';
 
 const Users = (props) => {
@@ -12,6 +17,28 @@ const Users = (props) => {
             break;
         }
         pages.push(i);
+    }
+
+    const handleFollow = (userId) => {
+        props.toggleFollowingInProgress(true, userId);
+        follow(userId)
+            .then(data => {
+                if (data?.resultCode === 0) {
+                    props.follow(userId)
+                }
+                props.toggleFollowingInProgress(false, userId);
+            });
+    }
+
+    const handleUnfollow = (userId) => {
+        props.toggleFollowingInProgress(true, userId);
+        unfollow(userId)
+            .then(data => {
+                if (data?.resultCode === 0) {
+                    props.unfollow(userId)
+                }
+                props.toggleFollowingInProgress(false, userId);
+            });
     }
 
     return (
@@ -32,8 +59,12 @@ const Users = (props) => {
                             <img src={u.photos.small != null ? u.photos.small : userImg} className={style.userStyles} />
                         </NavLink>
                         {u.followed ?
-                            <button onClick={() => props.unfollow(u.id)}>Unfollow</button> :
-                            <button onClick={() => props.follow(u.id)}>Follow</button>}
+                            <button
+                                disabled={props.followingInProgress.includes(u.id)}
+                                onClick={() => handleUnfollow(u.id)}>Unfollow</button> :
+                            <button
+                                disabled={props.followingInProgress.includes(u.id)}
+                                onClick={() => handleFollow(u.id)}>Follow</button>}
                     </div>
                     <div>
                         <div>
