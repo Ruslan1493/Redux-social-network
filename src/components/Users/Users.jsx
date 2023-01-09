@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import userImg from '../../assets/avatar.png';
 
 //Services
-import { follow, unfollow } from '../../api/api';
+import { usersAPI } from '../../api/api';
 
 //Styles
 import style from './User.module.scss';
@@ -20,25 +20,11 @@ const Users = (props) => {
     }
 
     const handleFollow = (userId) => {
-        props.toggleFollowingInProgress(true, userId);
-        follow(userId)
-            .then(data => {
-                if (data?.resultCode === 0) {
-                    props.follow(userId)
-                }
-                props.toggleFollowingInProgress(false, userId);
-            });
+        props.follow(userId);
     }
 
     const handleUnfollow = (userId) => {
-        props.toggleFollowingInProgress(true, userId);
-        unfollow(userId)
-            .then(data => {
-                if (data?.resultCode === 0) {
-                    props.unfollow(userId)
-                }
-                props.toggleFollowingInProgress(false, userId);
-            });
+        props.unfollow(userId);
     }
 
     return (

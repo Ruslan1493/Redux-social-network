@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Actions
-import { unfollow, follow, setUsers, setCurrentPage, setUsersTotalCount, setIsFetching, toggleFollowingInProgress } from '../Redux/usersReducer';
+import { unfollow, follow, setUsers, setCurrentPage, setUsersTotalCount, getUsersThunk } from '../Redux/usersReducer';
 
 //Components
 import Users from './Users';
 import Preloader from '../common/Preloader';
 
 // Services
-import { getUsers } from '../../api/api';
+import { usersAPI } from '../../api/api';
 
 //Styles
 import style from './User.module.scss';
@@ -17,24 +17,11 @@ import style from './User.module.scss';
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        this.props.setIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setUsersTotalCount(data.totalCount);
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     handleSetCurrentPage = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.setIsFetching(true);
-
-        getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.setIsFetching(false);
-                this.props.setUsers(data.items);
-            });
+        this.props.getUsers(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -49,7 +36,6 @@ class UsersAPIComponent extends React.Component {
                 unfollow={this.props.unfollow}
                 handleSetCurrentPage={this.handleSetCurrentPage}
                 followingInProgress={this.props.followingInProgress}
-                toggleFollowingInProgress={this.props.toggleFollowingInProgress}
             />
         </>
     }
@@ -72,6 +58,5 @@ export default connect(mapStateToProps, {
     setUsers,
     setCurrentPage,
     setUsersTotalCount,
-    setIsFetching,
-    toggleFollowingInProgress
+    getUsers: getUsersThunk
 })(UsersAPIComponent);
