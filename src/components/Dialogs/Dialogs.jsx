@@ -13,7 +13,6 @@ const Message = (props) => {
     return <div className={style.message}>{props.message}</div>
 }
 
-
 const Dialogs = (props) => {
     const dialogsPage = props.dialogsPage;
     const nameElement = useRef();

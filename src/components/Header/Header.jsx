@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import style from "./Header.module.scss";
 
 const Header = (props) => {
-    console.log(props)
+    // console.error('HEADER', props)
     return (
         <header className={style.header}>
             <div>Header</div>

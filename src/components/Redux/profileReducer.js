@@ -1,3 +1,6 @@
+// Services
+import { usersAPI } from '../../api/api';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE-NEW-POST-TEXT';
@@ -45,5 +48,19 @@ export const addPostActionCreator = (text) => ({ type: ADD_POST, newText: text }
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+
+
+/* Thunks */
+export const getProfile = (userId) => (dispatch) => {
+    usersAPI.getProfile(userId)
+        .then(data => {
+            console.error('data', data);
+            dispatch(setUserProfile(data));
+        })
+    // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+    //     .then(response => {
+    //         this.props.setUserProfile(response.data);
+    //     });
+}
 
 export default profileReducer;
