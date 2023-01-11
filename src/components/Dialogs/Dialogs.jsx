@@ -16,7 +16,7 @@ const Message = (props) => {
 const Dialogs = (props) => {
     const dialogsPage = props.dialogsPage;
     const nameElement = useRef();
-    
+
     const onChangeMessage = (e) => {
         const text = e.target;
         props.updateNewMessageBody(text);
