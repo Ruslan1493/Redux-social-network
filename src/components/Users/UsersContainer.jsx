@@ -13,6 +13,8 @@ import { usersAPI } from '../../api/api';
 
 //Styles
 import style from './User.module.scss';
+import { compose } from 'redux';
+import withAuthRedirect from '../common/withAuthRedirect';
 
 class UsersAPIComponent extends React.Component {
 
@@ -52,11 +54,14 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setUsersTotalCount,
-    getUsers: getUsersThunk
-})(UsersAPIComponent);
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setUsers,
+        setCurrentPage,
+        setUsersTotalCount,
+        getUsers: getUsersThunk
+    }
+    ))(UsersAPIComponent);
