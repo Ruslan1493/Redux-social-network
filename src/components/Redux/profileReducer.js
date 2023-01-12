@@ -1,9 +1,10 @@
 // Services
-import { usersAPI } from '../../api/api';
+import { profileAPI, usersAPI } from '../../api/api';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE-NEW-POST-TEXT';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 const initialState = {
     posts: [
@@ -12,7 +13,8 @@ const initialState = {
         { id: 2, message: "Third Post", likesCount: 0 }
     ],
     newPostText: 'enter yout text',
-    profile: null
+    profile: null,
+    status: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -38,6 +40,12 @@ const profileReducer = (state = initialState, action) => {
                 profile: action.profile
             };
         }
+        case SET_USER_STATUS: {
+            return {
+                ...state,
+                status: action.status
+            };
+        }
         default:
             return state;
     }
@@ -49,18 +57,31 @@ export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 
+export const setStatus = (status) => ({ type: SET_USER_STATUS, status });
+
 
 /* Thunks */
 export const getProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId)
         .then(data => {
-            console.error('data', data);
             dispatch(setUserProfile(data));
         })
-    // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-    //     .then(response => {
-    //         this.props.setUserProfile(response.data);
-    //     });
+}
+
+export const getStatus = (userId) => (dispatch) => {
+    profileAPI.getStatus(userId)
+        .then(data => {
+            dispatch(setStatus(data));
+        })
+}
+
+export const updateStatus = (status) => (dispatch) => {
+    profileAPI.updateStatus(status)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(setStatus(status));
+            }
+        })
 }
 
 export default profileReducer;
