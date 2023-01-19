@@ -5,3 +5,9 @@
 .postsBlock{
     margin-left: 30px;
 }
+
+.createPostWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

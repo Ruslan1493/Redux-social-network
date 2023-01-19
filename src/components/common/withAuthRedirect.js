@@ -22,7 +22,6 @@ const withAuthRedirect = (Component) => {
     const AuthRedirectComponent = connect(mapStateToProps)(RedirectComponent);
 
     return AuthRedirectComponent;
-    // export default compose()(withAuthRedirect);
 }
 
 export default withAuthRedirect;
