@@ -13,6 +13,7 @@ const Navigation = () => {
                 <li><Link to="#">News</Link></li>
                 <li><Link to="#">Music</Link></li>
                 <li><Link to="#">Settings</Link></li>
+                <li><Link to="/mui">Mui</Link></li>
             </ul>
         </nav>
     )
